@@ -22,6 +22,8 @@ public class User  implements UserDetails {
     @Column(unique = true)
     private String username;
     private String password;
+    @Column(unique = true)
+    private String email;
     @Enumerated(EnumType.STRING)
     private Role roles = Role.ROLE_USER;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
@@ -29,11 +31,12 @@ public class User  implements UserDetails {
     private boolean isAccountNonExpired = true;
     private boolean isAccountNonLocked = true;
     private boolean isCredentialsNonExpired = true;
-    private boolean isEnabled = true;
+    private boolean isEnabled = false;
 
-    public User(String name, String password) {
-        this.username = name;
+    public User(String username, String password, String email) {
+        this.username = username;
         this.password = password;
+        this.email = email;
     }
 
     public User() {

@@ -1,5 +1,48 @@
-Проблеми :
-Однакові пропертіс
-Переходи на інші списки
-Підстіування інпутів
-двійне трігання урли
+2019-09-23T16:34:26.645 could not execute statement; SQL [n/a]; constraint [UK_sb8bbouer5wak8vyiiy4pf2bx]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2019-09-23T16:34:40.616 could not execute statement; SQL [n/a]; constraint [UK_sb8bbouer5wak8vyiiy4pf2bx]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2019-09-25T11:18:45.666 null
+2019-09-25T11:28:40.886 could not execute statement; SQL [n/a]; constraint [UK_ob8kqyqqgmefl0aco34akdtpe]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2019-09-25T11:37:06.095 could not execute statement; SQL [n/a]; constraint [UK_ob8kqyqqgmefl0aco34akdtpe]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2019-09-25T12:22:45.206 Mail server connection failed; nested exception is javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Failed messages: javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2019-09-25T12:23:09.092 Mail server connection failed; nested exception is javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Failed messages: javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2019-09-25T12:23:12.336 could not execute statement; SQL [n/a]; constraint [UK_ob8kqyqqgmefl0aco34akdtpe]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2019-09-25T12:23:58.496 Mail server connection failed; nested exception is javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Failed messages: javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2019-09-25T12:30:20.983 Authentication failed; nested exception is javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 134sm1019291lfk.70 - gsmtp
+
+2019-09-25T12:30:47.290 Authentication failed; nested exception is javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials u21sm1108166lje.92 - gsmtp
+
+2019-09-25T12:37:48.333 Mail server connection failed; nested exception is com.sun.mail.util.MailConnectException: Couldn't connect to host, port: smtp.gmail.com, 587; timeout 5000;
+  nested exception is:
+	java.net.UnknownHostException: smtp.gmail.com. Failed messages: com.sun.mail.util.MailConnectException: Couldn't connect to host, port: smtp.gmail.com, 587; timeout 5000;
+  nested exception is:
+	java.net.UnknownHostException: smtp.gmail.com
+2019-09-26T08:41:59.515 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:43:18.611 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:45:26.676 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:46:55.860 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:49:34.046 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:49:40.752 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:50:45.785 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:52:57.138 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:53:33.736 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:57:02.539 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:57:25.384 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T08:59:21.440 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T09:00:07.263 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T09:06:59.432 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T09:21:29.424 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T09:42:25.835 com.jarviz.webstore.tools.NotAuthenticatedException

@@ -1,5 +1,4 @@
 package com.jarviz.webstore.Controllers;
-
 import com.jarviz.webstore.Models.Category;
 import com.jarviz.webstore.Models.Product;
 import com.jarviz.webstore.Service.CategoryService;
@@ -7,9 +6,6 @@ import com.jarviz.webstore.Service.GroupService;
 import com.jarviz.webstore.Service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -44,10 +40,6 @@ public class MenuController {
                                            @RequestParam("limit") Integer limit,
                                            @RequestParam("group") String group,
                                            @RequestParam("properties") String properties) {
-        List<Product> sortedProducts = productService.getSortedProducts(priceFrom, priceTo, limit, direction, sortBy, group, properties);
-        for (Product sortedProduct : sortedProducts) {
-            System.out.println(sortedProduct.getTitle());
-        }
         return productService.getSortedProducts(priceFrom, priceTo, limit, direction, sortBy, group, properties);
     }
 

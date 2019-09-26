@@ -1,5 +1,7 @@
 package com.jarviz.webstore.Configs;
 
+import com.jarviz.webstore.Service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -22,39 +24,35 @@ import java.util.Arrays;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-//        @Autowired
-//        @Qualifier("user")
-//        UserDetailsService userDetailsService;
+    @Qualifier("userDetails")
+    @Autowired
+    private UserDetailsService userDetailsService;
+    @Autowired
+    private UserService userService;
 
-        @Bean
-        public PasswordEncoder passwordEncoder() {
-            return new BCryptPasswordEncoder();
-        }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http.cors().configurationSource(corsConfigurationSource()).and().csrf().disable()
-                    .authorizeRequests()
-                    .anyRequest().permitAll()
-//                    .antMatchers(HttpMethod.POST,"/register").permitAll()
-//                    .antMatchers("/getCategories").permitAll()
-//                    .antMatchers(HttpMethod.POST,"/PutMoney","GetMoney","/TransferMoney").authenticated()
-                    .and();
-//                    .addFilterBefore(new RequestProcessingJWTFilter(), UsernamePasswordAuthenticationFilter.class)
-//                    .addFilterBefore(new LoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class);
-        }
-
-//
-//        @Bean
-//        public DaoAuthenticationProvider authenticationProvider() {
-//            DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-//            provider.setUserDetailsService(userDetailsService);
-//            provider.setPasswordEncoder(passwordEncoder());
-//            return provider;
-//        }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors().configurationSource(corsConfigurationSource()).and().csrf().disable()
+                .authorizeRequests()
+                .anyRequest().permitAll()
+                .and()
+                .addFilterBefore(new RequestProcessingJWTFilter(userService), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new LoginFilter("/login", authenticationManager(),userService,passwordEncoder()), UsernamePasswordAuthenticationFilter.class);
+    }
 
 
-
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
+    }
 
 
     @Bean
@@ -63,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         configuration.addAllowedHeader("*");
         configuration.addAllowedOrigin("http://localhost:4200");
         configuration.setAllowedMethods(Arrays.asList(HttpMethod.POST.name(), HttpMethod.GET.name(),HttpMethod.DELETE.name(),HttpMethod.OPTIONS.name()));
-//        configuration.addExposedHeader("Authorization");
+        configuration.addExposedHeader("Authorization");
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
