@@ -28,6 +28,8 @@ public class User  implements UserDetails {
     private Role roles = Role.ROLE_USER;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private PersonalData personalData;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private Basket basket;
     private boolean isAccountNonExpired = true;
     private boolean isAccountNonLocked = true;
     private boolean isCredentialsNonExpired = true;

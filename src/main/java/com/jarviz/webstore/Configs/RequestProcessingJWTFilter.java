@@ -25,7 +25,7 @@ public class RequestProcessingJWTFilter extends GenericFilterBean {
         Authentication authentication = null;
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String token = httpServletRequest.getHeader("Authorization");
-        if (token != null) {
+        if (token != null && !token.equals("")) {
             String user = Jwts.parser()
                     .setSigningKey("candies".getBytes())
                     .parseClaimsJws(token.replace("Bearer", ""))

@@ -45,7 +45,7 @@ public class MailService {
             helper.addAttachment(file.getOriginalFilename(), file);
             helper.setText("<h2>Hi!  " + user.getUsername() + "</h2>" +
                     "<h3> Click this link to activate your new account: \n </h3> " +
-                    " <a target='_blank' href= http://localhost:8080/register/confirm/" + user.getUsername() + ">Activate", true);
+                    " <a target='_blank' href= http://localhost:4200/confirmedRegistration/" + user.getUsername() + ">Activate", true);
         javaMailSender.send(mimeMessage);
     }
 }

@@ -46,3 +46,175 @@
 2019-09-26T09:06:59.432 com.jarviz.webstore.tools.NotAuthenticatedException
 2019-09-26T09:21:29.424 com.jarviz.webstore.tools.NotAuthenticatedException
 2019-09-26T09:42:25.835 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-26T16:39:06.249 Mail server connection failed; nested exception is javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Failed messages: javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2019-09-26T16:39:46.979 Mail server connection failed; nested exception is javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Failed messages: javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2019-09-28T15:06:15.295 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-28T15:08:34.438 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-28T15:12:40.050 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-28T15:13:05.926 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-28T15:14:42.783 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-28T15:15:15.506 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-28T15:15:45.395 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-28T15:17:04.183 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-28T15:17:13.073 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:14:27.107 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:26:20.246 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:26:20.304 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:26:20.308 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:32:20.438 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:32:20.504 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:32:20.510 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:33:43.557 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:33:43.623 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:33:43.629 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:33:48.272 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T16:35:10.485 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-09-30T18:42:02.153 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:43:07.293 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:43:09.284 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:43:13.259 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:43:50.518 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:44:00.526 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:45:14.775 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:48:13.143 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:48:29.149 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:50:12.474 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:50:17.442 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:50:20.032 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:50:34.694 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:51:19.099 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:51:26.968 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:51:30.897 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:51:34.070 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:52:12.703 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:52:25.778 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:52:58.017 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:54:09.044 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:55:48.090 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:55:55.198 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:56:12.732 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:56:29.389 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:56:52.967 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:57:11.522 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:57:32.546 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:57:39.028 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:57:46.687 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:57:58.497 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:58:04.161 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:58:13.081 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:58:26.131 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:58:28.367 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:58:41.582 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:58:48.474 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:58:55.029 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:58:58.037 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:59:50.804 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T18:59:53.759 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T19:00:34.471 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T19:00:46.544 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T19:00:51.116 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T19:01:09.412 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T19:01:36.793 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T19:01:42.092 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T19:01:53.352 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T19:03:07.400 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T19:03:47.315 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-09-30T19:07:14.091 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T08:22:13.873 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-10-01T09:31:32.637 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T09:31:40.391 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T09:32:05.289 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T09:32:09.240 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T09:32:46.946 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T09:33:17.524 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T09:33:32.449 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T09:36:49.625 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T09:37:08.255 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T09:37:42.943 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T09:41:55.677 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T10:16:08.889 Cannot deserialize instance of `java.lang.String` out of START_OBJECT token
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 76] (through reference chain: com.jarviz.webstore.Models.PersonalData["picture"])
+2019-10-01T10:16:17.610 Cannot deserialize instance of `java.lang.String` out of START_OBJECT token
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 76] (through reference chain: com.jarviz.webstore.Models.PersonalData["picture"])
+2019-10-01T10:17:22.807 Cannot deserialize instance of `java.lang.String` out of START_OBJECT token
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 76] (through reference chain: com.jarviz.webstore.Models.PersonalData["picture"])
+2019-10-01T10:18:26.035 Cannot deserialize instance of `java.lang.String` out of START_OBJECT token
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 77] (through reference chain: com.jarviz.webstore.Models.PersonalData["picture"])
+2019-10-01T10:20:50.043 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T10:21:37.560 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T10:24:02.574 Unrecognized field "hibernateLazyInitializer" (class com.jarviz.webstore.Models.Address), not marked as ignorable (6 known properties: "street", "region", "country", "number", "id", "city"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 262] (through reference chain: com.jarviz.webstore.Models.PersonalData["address"]->com.jarviz.webstore.Models.Address["hibernateLazyInitializer"])
+2019-10-01T10:25:09.818 Cannot deserialize instance of `java.lang.String` out of START_OBJECT token
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 76] (through reference chain: com.jarviz.webstore.Models.PersonalData["picture"])
