@@ -1,11 +1,7 @@
 package com.jarviz.webstore.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jarviz.webstore.Dao.UserDao;
-import com.jarviz.webstore.Models.AccountCredentials;
-import com.jarviz.webstore.Models.Address;
-import com.jarviz.webstore.Models.PersonalData;
-import com.jarviz.webstore.Models.User;
+import com.jarviz.webstore.Models.*;
 import com.jarviz.webstore.tools.ExceptionWriter;
 import com.jarviz.webstore.tools.NotAuthenticatedException;
 import lombok.AllArgsConstructor;
@@ -14,9 +10,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -25,6 +21,7 @@ public class UserService {
     private UserDao userDao;
     private PasswordEncoder passwordEncoder;
     private MailService mailService;
+    private ProductService productService;
 
     public User getByUsername(String name) {
         return userDao.getByUsername(name);
@@ -42,17 +39,6 @@ public class UserService {
         return true;
     }
 
-    public User getAuthentication() throws IOException {
-        String authentication = SecurityContextHolder.getContext().getAuthentication().getName();
-        User byName = getByUsername(authentication);
-        if (byName == null) try {
-            throw new NotAuthenticatedException();
-        } catch (NotAuthenticatedException e) {
-            exceptionWriter.write(e.getClass().getName());
-            return null;
-        }
-        return byName;
-    }
 
     public User getByUsernameOrEmail(String userNameOrEmail) {
         if (userNameOrEmail.contains("@")) return userDao.getByEmail(userNameOrEmail);
@@ -67,11 +53,11 @@ public class UserService {
 
     public boolean addUserData(PersonalData personalData, Address address, MultipartFile picture) throws IOException {
         personalData.setAddress(address);
-        if (savePicture(picture)) {
+        User user = getAuthentication();
+        if (savePicture(picture,user)) {
             personalData.setPicture(picture.getOriginalFilename());
         }
-        String authentication = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userDao.getByUsername(authentication);
+        if (user == null) return false;
         if (user.getPersonalData() == null) {
             user.setPersonalData(personalData);
             userDao.save(user);
@@ -82,6 +68,39 @@ public class UserService {
         }
         return true;
     }
+
+    public boolean addToBasket(BasketEntity basketEntry) throws IOException {
+        User user = getAuthentication();
+        if (user == null) return false;
+        Basket basket = user.getBasket();
+        if (basket == null) basket = new Basket();
+        basket.getBasketEntities().add(new BasketEntity(productService.get(basketEntry.getProduct().getId()),basketEntry.getQuantity(),basket));
+        user.setBasket(basket);
+        basket.setUser(user);
+        userDao.save(user);
+        return true;
+    }
+    public List<BasketEntity> getAllProductsFromCart() throws IOException {
+        User user = getAuthentication();
+        if (user == null) return null;
+        if (user.getBasket() == null) return null;
+        if (user.getBasket().getBasketEntities().isEmpty()) return null;
+        return user.getBasket().getBasketEntities();
+    }
+
+
+    public User  getAuthentication() throws IOException {
+            try {
+                String authentication = SecurityContextHolder.getContext().getAuthentication().getName();
+                User byName = getByUsername(authentication);
+                if (byName == null) throw new NotAuthenticatedException();
+                return byName;
+            } catch (NotAuthenticatedException e) {
+               exceptionWriter.write(e.getClass().getName());
+               return null;
+            }
+    }
+
 
     private PersonalData updateUserInfo(User user, PersonalData personalData) {
         PersonalData personalDataUser = user.getPersonalData();
@@ -98,12 +117,18 @@ public class UserService {
         return personalDataUser;
     }
 
-    private boolean savePicture(MultipartFile picture) throws IOException {
-        if (picture == null){
+    private boolean savePicture(MultipartFile picture,User user) throws IOException {
+        String path = System.getProperty("user.home") + "\\Desktop\\Front\\src\\assets\\Users\\";
+        if (picture == null) {
             return false;
         }
-        String path = System.getProperty("user.home") + "\\Desktop\\Front\\src\\assets\\Users\\" + picture.getOriginalFilename();
-        File file = new File(path);
+        if (!user.getPersonalData().getPicture().equals("")){
+            File file = new File(path + user.getPersonalData().getPicture());
+            if (file.exists()){
+                file.delete();
+            }
+        }
+        File file = new File(path + picture.getOriginalFilename());
         if (!file.exists()) {
             file.createNewFile();
         }
@@ -116,4 +141,5 @@ public class UserService {
 
         return true;
     }
+
 }

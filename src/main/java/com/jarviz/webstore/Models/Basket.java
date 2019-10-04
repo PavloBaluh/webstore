@@ -2,13 +2,17 @@ package com.jarviz.webstore.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Data
+@ToString(exclude = "user")
 public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,10 +20,6 @@ public class Basket {
     @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JsonIgnore
     private User user;
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "basket")
-    private List<BasketEntry> basketEntries = new ArrayList<>();
-    private Integer quantity;
-
-
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "basket")
+    private List<BasketEntity> basketEntities = new ArrayList<>();
 }

@@ -20,8 +20,8 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
     @Query("select p from Product p where p.group = :groupEl  order by p.title asc ")
     List<Product> getProductsByGroup(@Param("groupEl") Group group, Pageable pageable);
 
-    @Query("select p from  Product p join p.propertyValues v where p.price between :pF and :pT and v.id in (:pr) and p.group = :gr")
-    List<Product> getSortedProductsWithProperties(@Param("pF") float priceFrom, @Param("pT") float priceTo, @Param("gr") Group group, @Param("pr") ArrayList<Integer> properties, Pageable pageable);
+//    @Query("select p from  Product p join p.propertyValues v where p.price between :pF and :pT and v.id in (:pr) and p.group = :gr")
+//    List<Product> getSortedProductsWithProperties(@Param("pF") float priceFrom, @Param("pT") float priceTo, @Param("gr") Group group, @Param("pr") ArrayList<Integer> properties, Pageable pageable);
 
     @Query("select p from  Product p where p.price between :pF and :pT and p.group = :gr")
     List<Product> getSortedProducts(@Param("pF") float priceFrom, @Param("pT") float priceTo, @Param("gr") Group group, Pageable pageable);

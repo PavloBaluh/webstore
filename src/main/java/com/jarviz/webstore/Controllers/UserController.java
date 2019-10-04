@@ -1,20 +1,19 @@
 package com.jarviz.webstore.Controllers;
-import com.jarviz.webstore.Models.Address;
-import com.jarviz.webstore.Models.PersonalData;
-import com.jarviz.webstore.Models.User;
+import com.jarviz.webstore.Models.*;
+import com.jarviz.webstore.Service.BasketService;
 import com.jarviz.webstore.Service.UserService;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
 public class UserController {
     private UserService userService;
+    private BasketService basketService;
 
     @PostMapping("/register")
     public Boolean registerUser(User user) throws IOException {
@@ -35,4 +34,16 @@ public class UserController {
      return userService.addUserData(personalData,address,userPicture);
     }
 
+    @PostMapping("/addProductsToCart")
+    public Boolean addProductsToCart (@RequestBody BasketEntity basketEntry) throws IOException {
+        return  userService.addToBasket(basketEntry);
+    }
+    @GetMapping("/getAllProductsFromCart")
+    public List<BasketEntity> getAllProductsFromCart() throws IOException {
+        return userService.getAllProductsFromCart();
+    }
+    @DeleteMapping("/deleteFromBasket/{id}")
+    public Boolean deleteFromBasket(@PathVariable("id") Integer id) throws IOException {
+        return this.basketService.deleteFromBasket(id);
+    }
 }

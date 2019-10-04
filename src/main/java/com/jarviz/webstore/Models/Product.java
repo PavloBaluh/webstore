@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@ToString(exclude = "group")
+@ToString(exclude = {"cart", "group"})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,4 +34,7 @@ public class Product {
     private Group group;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<PropertyValue> propertyValues = new ArrayList<>();
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "product")
+    private List<BasketEntity> cart = new ArrayList<>();
 }

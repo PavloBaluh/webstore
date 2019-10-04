@@ -16,7 +16,7 @@ public class GroupService {
 
     public List<String> getHierarchyByGroupName(String name) {
         String hierarchyByGroupName = groupDao.getHierarchyByGroupName(name);
-       return Arrays.asList(hierarchyByGroupName.split(","));
+        return Arrays.asList(hierarchyByGroupName.split(","));
     }
 
 }

@@ -1,4 +1,4 @@
-package com.jarviz.webstore.Models;
+package com.jarviz.webstore.tools;
 
 import lombok.Data;
 

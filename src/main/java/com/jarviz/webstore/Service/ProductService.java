@@ -43,7 +43,7 @@ public class ProductService {
         } else
             products = this.productDao.getSortedProducts(priceFrom, intPriceTo, groupByName, PageRequest.of(0, limit, Sort.by(sortBy)));
         if (!properties.isEmpty()) {
-           return getProductsByProperties(properties, products);
+            return getProductsByProperties(properties, products);
         }
         return products;
     }
@@ -80,5 +80,9 @@ public class ProductService {
         minMax.add((int) Math.ceil(minPrice));
         minMax.add((int) Math.ceil(maxPrice));
         return minMax;
+    }
+
+    public Product get(Integer id) {
+        return productDao.getOne(id);
     }
 }
