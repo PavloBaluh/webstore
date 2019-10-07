@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -54,10 +54,9 @@ public class UserService {
     public boolean addUserData(PersonalData personalData, Address address, MultipartFile picture) throws IOException {
         personalData.setAddress(address);
         User user = getAuthentication();
-        if (savePicture(picture,user)) {
-            personalData.setPicture(picture.getOriginalFilename());
+        if (savePicture(picture, user)) {
+            user.getPersonalData().setPicture(picture.getOriginalFilename());
         }
-        if (user == null) return false;
         if (user.getPersonalData() == null) {
             user.setPersonalData(personalData);
             userDao.save(user);
@@ -71,34 +70,53 @@ public class UserService {
 
     public boolean addToBasket(BasketEntity basketEntry) throws IOException {
         User user = getAuthentication();
-        if (user == null) return false;
         Basket basket = user.getBasket();
         if (basket == null) basket = new Basket();
-        basket.getBasketEntities().add(new BasketEntity(productService.get(basketEntry.getProduct().getId()),basketEntry.getQuantity(),basket));
+        basket.getBasketEntities().add(new BasketEntity(productService.get(basketEntry.getProduct().getId()), basketEntry.getQuantity(), basket));
         user.setBasket(basket);
         basket.setUser(user);
         userDao.save(user);
         return true;
     }
+
     public List<BasketEntity> getAllProductsFromCart() throws IOException {
         User user = getAuthentication();
-        if (user == null) return null;
         if (user.getBasket() == null) return null;
         if (user.getBasket().getBasketEntities().isEmpty()) return null;
         return user.getBasket().getBasketEntities();
     }
 
 
-    public User  getAuthentication() throws IOException {
-            try {
-                String authentication = SecurityContextHolder.getContext().getAuthentication().getName();
-                User byName = getByUsername(authentication);
-                if (byName == null) throw new NotAuthenticatedException();
-                return byName;
-            } catch (NotAuthenticatedException e) {
-               exceptionWriter.write(e.getClass().getName());
-               return null;
-            }
+    public boolean addToWishes(Product product) throws IOException {
+        User user = getAuthentication();
+        boolean isAdd = user.getWishes().add(productService.get(product.getId()));
+        userDao.save(user);
+        return isAdd;
+    }
+
+    public List<Product> getAllWishes() throws IOException {
+        User user = getAuthentication();
+        return new ArrayList<>(user.getWishes());
+    }
+
+    public Boolean deleteFromWishes(Integer id) throws IOException {
+        User user = getAuthentication();
+        boolean isDeleted = user.getWishes().removeIf(product -> product.getId() == id);
+        userDao.save(user);
+        return isDeleted;
+    }
+
+
+    public User getAuthentication() throws IOException {
+        try {
+            String authentication = SecurityContextHolder.getContext().getAuthentication().getName();
+            User byName = getByUsername(authentication);
+            if (byName == null) throw new NotAuthenticatedException();
+            return byName;
+        } catch (NotAuthenticatedException e) {
+            exceptionWriter.write(e.getClass().getName());
+            return null;
+        }
     }
 
 
@@ -107,7 +125,6 @@ public class UserService {
         Address address = personalData.getAddress();
         personalDataUser.setName(personalData.getName());
         personalDataUser.setSurname(personalData.getSurname());
-        personalDataUser.setPicture(personalData.getPicture());
         personalDataUser.setPhoneNumber(personalData.getPhoneNumber());
         personalDataUser.getAddress().setCity(address.getCity());
         personalDataUser.getAddress().setNumber(address.getNumber());
@@ -117,14 +134,14 @@ public class UserService {
         return personalDataUser;
     }
 
-    private boolean savePicture(MultipartFile picture,User user) throws IOException {
+    private boolean savePicture(MultipartFile picture, User user) throws IOException {
         String path = System.getProperty("user.home") + "\\Desktop\\Front\\src\\assets\\Users\\";
         if (picture == null) {
             return false;
         }
-        if (!user.getPersonalData().getPicture().equals("")){
+        if (!(user.getPersonalData().getPicture() == null) && !(user.getPersonalData().getPicture().equals(""))) {
             File file = new File(path + user.getPersonalData().getPicture());
-            if (file.exists()){
+            if (file.exists()) {
                 file.delete();
             }
         }

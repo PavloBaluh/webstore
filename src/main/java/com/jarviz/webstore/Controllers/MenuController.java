@@ -1,4 +1,5 @@
 package com.jarviz.webstore.Controllers;
+
 import com.jarviz.webstore.Models.Category;
 import com.jarviz.webstore.Models.Product;
 import com.jarviz.webstore.Service.CategoryService;
@@ -6,6 +7,7 @@ import com.jarviz.webstore.Service.GroupService;
 import com.jarviz.webstore.Service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController

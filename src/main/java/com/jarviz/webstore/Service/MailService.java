@@ -39,13 +39,13 @@ public class MailService {
                 + File.separator + "resources" + File.separator + "static" + File.separator + "logo.png");
         MultipartFile file = new MockMultipartFile("logo.png",
                 "logo.png", "text/plain", Files.readAllBytes(path));
-            mimeMessage.setFrom(new InternetAddress(Objects.requireNonNull(env.getProperty("spring.mail.username"))));
-            helper.setTo(user.getEmail());
-            helper.setSubject("Your new account must be activated before it can be used:");
-            helper.addAttachment(file.getOriginalFilename(), file);
-            helper.setText("<h2>Hi!  " + user.getUsername() + "</h2>" +
-                    "<h3> Click this link to activate your new account: \n </h3> " +
-                    " <a target='_blank' href= http://localhost:4200/confirmedRegistration/" + user.getUsername() + ">Activate", true);
+        mimeMessage.setFrom(new InternetAddress(Objects.requireNonNull(env.getProperty("spring.mail.username"))));
+        helper.setTo(user.getEmail());
+        helper.setSubject("Your new account must be activated before it can be used:");
+        helper.addAttachment(file.getOriginalFilename(), file);
+        helper.setText("<h2>Hi!  " + user.getUsername() + "</h2>" +
+                "<h3> Click this link to activate your new account: \n </h3> " +
+                " <a target='_blank' href= http://localhost:4200/confirmedRegistration/" + user.getUsername() + ">Activate", true);
         javaMailSender.send(mimeMessage);
     }
 }

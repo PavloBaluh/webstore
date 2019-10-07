@@ -11,10 +11,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface BasketEntityDao extends JpaRepository<BasketEntity,Integer> {
+public interface BasketEntityDao extends JpaRepository<BasketEntity, Integer> {
 
     @Transactional
     @Modifying
     @Query("delete from BasketEntity b where b.basket =:basket and b.id = :basketEntityId")
-    void deleteBasketEntity(@Param("basket") Basket basket,@Param("basketEntityId") Integer basketEntityId);
+    void deleteBasketEntity(@Param("basket") Basket basket, @Param("basketEntityId") Integer basketEntityId);
 }

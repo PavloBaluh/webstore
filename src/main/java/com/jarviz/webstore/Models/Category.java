@@ -1,9 +1,8 @@
 package com.jarviz.webstore.Models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.ToString;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

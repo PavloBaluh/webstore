@@ -219,3 +219,5 @@
 2019-10-01T10:25:09.818 Cannot deserialize instance of `java.lang.String` out of START_OBJECT token
  at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 1, column: 76] (through reference chain: com.jarviz.webstore.Models.PersonalData["picture"])
 2019-10-04T18:52:07.391 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-10-06T19:08:13.433 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-10-07T12:50:26.031 com.jarviz.webstore.tools.NotAuthenticatedException

@@ -21,7 +21,4 @@ public class Property {
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "property")
     private List<PropertyValue> values = new ArrayList<>();
-
-    public Property() {
-    }
 }
