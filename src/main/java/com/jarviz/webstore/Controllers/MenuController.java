@@ -25,8 +25,8 @@ public class MenuController {
     }
 
     @GetMapping("/getProductsByGroup/{group}")
-    public List<Product> getProductsByGroup(@PathVariable("group") String group) {
-        return productService.getProductsByGroup(group);
+    public List<Product> getProductsByGroup(@PathVariable("group") String groupAndPage) {
+        return productService.getProductsByGroup(groupAndPage);
     }
 
     @GetMapping("/getHierarchy/{group}")
@@ -41,12 +41,26 @@ public class MenuController {
                                            @RequestParam("sortBy") String sortBy,
                                            @RequestParam("limit") Integer limit,
                                            @RequestParam("group") String group,
-                                           @RequestParam("properties") String properties) {
-        return productService.getSortedProducts(priceFrom, priceTo, limit, direction, sortBy, group, properties);
+                                           @RequestParam("properties") String properties,
+                                           @RequestParam("page") Integer page) {
+        return productService.getSortedProducts(priceFrom, priceTo, limit, direction, sortBy, group, properties, page);
     }
 
     @GetMapping("/GetMinMaxPriceByGroup/{group}")
     public List<Integer> getMinMaxPriceByGroup(@PathVariable("group") String group) {
         return this.productService.getMinMaxPriceByGroup(group);
+    }
+
+    @GetMapping("/suchProductsByChars/{charSequence}")
+    public List<Product> suchProductsByChars(@PathVariable String charSequence) {
+        return this.productService.getProductsByChars(charSequence);
+    }
+
+    @PostMapping("/getProductsCount/{group}")
+    public Integer getProductsCount(@PathVariable("group") String group,
+                                    Float priceFrom,
+                                    Float priceTo,
+                                    String properties) {
+        return productService.getProductsCount(group,priceFrom,priceTo,properties);
     }
 }

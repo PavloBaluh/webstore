@@ -1,7 +1,6 @@
 package com.jarviz.webstore.Controllers;
 
 import com.jarviz.webstore.Models.*;
-import com.jarviz.webstore.Service.BasketService;
 import com.jarviz.webstore.Service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 public class UserController {
     private UserService userService;
-    private BasketService basketService;
 
     @GetMapping("/getAuthentication")
     public User getAuthentication() throws IOException {
@@ -36,6 +34,12 @@ public class UserController {
         return userService.getAllWishes();
     }
 
+    @GetMapping("/getAllOrders")
+    public List<OrderEntity> getAllOrders() throws IOException {
+        return userService.getAllOrders();
+    }
+
+
     @PostMapping("/register")
     public Boolean registerUser(User user) throws IOException {
         return this.userService.registerNewUser(user);
@@ -56,14 +60,25 @@ public class UserController {
         return userService.addToWishes(product);
     }
 
+    @PostMapping("/makeOrder")
+    public OrderEntity makeOrder(@RequestBody OrderEntity orderEntity) throws IOException {
+        return this.userService.makeOrder(orderEntity);
+    }
+
+    @PostMapping("/changePassword")
+    public boolean changePassword(@RequestParam("newPassword") String newPassword, @RequestParam("oldPassword") String oldPassword) throws IOException {
+        return userService.changePassword(newPassword,oldPassword);
+    }
+
     @DeleteMapping("/deleteFromBasket/{id}")
     public Boolean deleteFromBasket(@PathVariable("id") Integer id) throws IOException {
-        return this.basketService.deleteFromBasket(id);
+        return this.userService.deleteFromBasket(id);
     }
 
     @DeleteMapping("/deleteFromWishes/{id}")
     public Boolean deleteFromWishes(@PathVariable("id") Integer id) throws IOException {
         return this.userService.deleteFromWishes(id);
     }
+
 
 }

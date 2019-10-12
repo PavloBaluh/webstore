@@ -3,6 +3,7 @@ package com.jarviz.webstore.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.util.List;
 @Entity
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString(exclude = "values")
 public class Property {
     @Id

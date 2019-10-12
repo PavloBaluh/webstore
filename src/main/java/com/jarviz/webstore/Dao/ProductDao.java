@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -24,4 +25,13 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
     List<Product> getSortedProducts(@Param("pF") float priceFrom, @Param("pT") float priceTo, @Param("gr") Group group, Pageable pageable);
 
     List<Product> getByGroup(Group group);
+
+    @Query("select p from Product p where p.title like concat('%',:p,'%') ")
+    List<Product> getByCharsSequence(@Param("p") String ch,Pageable pageable);
+
+    @Query("select p from Product p where p.group = :groupEl and p.price between :pF and :pT ")
+    List<Product> getProductCount(@Param("groupEl") Group group, @Param("pF") float priceFrom, @Param("pT") float priceTo);
+
+    @Query("select p from Product p where p.group = :groupEl")
+    List<Product> getProductCountWithGroup(@Param("groupEl") Group group);
 }

@@ -1,7 +1,7 @@
 package com.jarviz.webstore.tools;
 
 public enum PayType {
-    Value1("Cash"), Value2("Paypal");
+    Cash("Cash"), Paypal("Paypal");
     private String text;
 
     PayType(String val) {

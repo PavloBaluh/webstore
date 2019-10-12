@@ -29,19 +29,37 @@ public class ProductService {
         productDao.save(product);
     }
 
-    public List<Product> getProductsByGroup(String groupName) {
-        Group groupByName = groupDao.getByName(groupName);
-        return productDao.getProductsByGroup(groupByName, PageRequest.of(0, 4));
+    public Integer getProductsCount(String group, Float priceFrom, Float PriceTo, String properties) {
+        Group groupByName = groupDao.getByName(group);
+        int productCount = 0;
+        if ((priceFrom == 0) && (PriceTo == 0)) {
+            productCount = productDao.getProductCountWithGroup(groupByName).size();
+        } else  {
+            List<Product> products = productDao.getProductCount(groupByName, priceFrom, PriceTo);
+            if ((!properties.isEmpty())) {
+                products = getProductsByProperties(properties, products);
+            }
+            productCount = products.size();
+        }
+        return productCount;
+
+    }
+
+    public List<Product> getProductsByGroup(String groupAndPage) {
+        String[] split = groupAndPage.split(",");
+        Group groupByName = groupDao.getByName(split[0]);
+
+        return productDao.getProductsByGroup(groupByName, PageRequest.of(Integer.valueOf(split[1]), 4));
     }
 
 
-    public List<Product> getSortedProducts(float priceFrom, float intPriceTo, int limit, String direction, String sortBy, String group, String properties) {
+    public List<Product> getSortedProducts(float priceFrom, float intPriceTo, int limit, String direction, String sortBy, String group, String properties, Integer page) {
         Group groupByName = groupDao.getByName(group);
         List<Product> products;
         if (direction.equals("desc")) {
-            products = this.productDao.getSortedProducts(priceFrom, intPriceTo, groupByName, PageRequest.of(0, limit, Sort.by(sortBy).descending()));
+            products = this.productDao.getSortedProducts(priceFrom, intPriceTo, groupByName, PageRequest.of(page, limit, Sort.by(sortBy).descending()));
         } else
-            products = this.productDao.getSortedProducts(priceFrom, intPriceTo, groupByName, PageRequest.of(0, limit, Sort.by(sortBy)));
+            products = this.productDao.getSortedProducts(priceFrom, intPriceTo, groupByName, PageRequest.of(page, limit, Sort.by(sortBy)));
         if (!properties.isEmpty()) {
             return getProductsByProperties(properties, products);
         }
@@ -84,5 +102,9 @@ public class ProductService {
 
     public Product get(Integer id) {
         return productDao.getOne(id);
+    }
+
+    public List<Product> getProductsByChars(String sequence) {
+        return this.productDao.getByCharsSequence(sequence, PageRequest.of(0, 4));
     }
 }

@@ -1,5 +1,6 @@
 package com.jarviz.webstore.Service;
 
+import com.jarviz.webstore.Dao.BasketEntityDao;
 import com.jarviz.webstore.Dao.UserDao;
 import com.jarviz.webstore.Models.*;
 import com.jarviz.webstore.tools.ExceptionWriter;
@@ -12,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
@@ -22,6 +24,7 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
     private MailService mailService;
     private ProductService productService;
+    private BasketEntityDao basketEntityDao;
 
     public User getByUsername(String name) {
         return userDao.getByUsername(name);
@@ -104,6 +107,53 @@ public class UserService {
         boolean isDeleted = user.getWishes().removeIf(product -> product.getId() == id);
         userDao.save(user);
         return isDeleted;
+    }
+
+    public boolean deleteFromBasket(Integer id) throws IOException {
+        User user = getAuthentication();
+        basketEntityDao.deleteBasketEntity(user.getBasket(), id);
+        return true;
+    }
+
+    public OrderEntity makeOrder(OrderEntity orderEntity) throws IOException {
+        orderEntity.setLocalDateTime(LocalDateTime.now());
+        orderEntity.getOrderProducts().forEach(orderProduct -> {
+            orderProduct.setOrderEntity(orderEntity);
+            orderProduct.setProduct(this.productService.get(orderProduct.getProduct().getId()));
+        });
+        User user = getAuthentication();
+        Orders order = user.getOrder();
+        if (order == null) {
+            order = new Orders();
+            order.setOrderEntities(new ArrayList<>());
+        }
+        List<BasketEntity> basketEntities = user.getBasket().getBasketEntities();
+        basketEntities.forEach(basketEntity -> basketEntityDao.deleteBasketEntity(user.getBasket(), basketEntity.getId()));
+        orderEntity.setOrder(order);
+        order.setOrderUser(user);
+        order.getOrderEntities().add(orderEntity);
+        user.setOrder(order);
+        userDao.save(user);
+        List<OrderEntity> orderEntities = userDao.getByUsername(user.getUsername()).getOrder().getOrderEntities();
+        return orderEntities.get(orderEntities.size() - 1);
+    }
+
+    public List<OrderEntity> getAllOrders() throws IOException {
+        User authentication = getAuthentication();
+        if (authentication.getOrder() == null) {
+            return null;
+        }
+        return authentication.getOrder().getOrderEntities();
+    }
+
+    public boolean changePassword(String newPassword, String oldPassword) throws IOException {
+        User user = getAuthentication();
+        if (passwordEncoder.matches(oldPassword, user.getPassword())) {
+            user.setPassword(passwordEncoder.encode(newPassword));
+            userDao.save(user);
+            return true;
+        }
+        return false;
     }
 
 

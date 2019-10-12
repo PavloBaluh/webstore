@@ -1,4 +1,5 @@
 package com.jarviz.webstore.Models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jarviz.webstore.tools.OrderStatus;
 import com.jarviz.webstore.tools.PayType;
 import lombok.Data;
@@ -13,7 +14,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@ToString(exclude = {"order","entities"})
+@ToString(exclude = {"order"})
 public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +25,10 @@ public class OrderEntity {
     private Boolean payed;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "orderEntity")
-    private List<BasketEntity> entities = new ArrayList<>();
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Orders order;
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "orderEntity")
+    private List<OrderProduct> orderProducts = new ArrayList<>();
 }
 

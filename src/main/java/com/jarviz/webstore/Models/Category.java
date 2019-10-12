@@ -1,6 +1,4 @@
 package com.jarviz.webstore.Models;
-
-
 import lombok.Data;
 import lombok.ToString;
 import javax.persistence.*;

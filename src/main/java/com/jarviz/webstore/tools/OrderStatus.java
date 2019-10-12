@@ -3,7 +3,7 @@ package com.jarviz.webstore.tools;
 import lombok.ToString;
 
 public enum OrderStatus {
-    Value1("checking"), Value2("in_processing"), Value3("processed");
+    checking("checking"), inProcessing("in_processing"), processed("processed");
     private String text;
 
     OrderStatus(String value) {

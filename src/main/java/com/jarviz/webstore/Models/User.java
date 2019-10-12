@@ -1,12 +1,10 @@
 package com.jarviz.webstore.Models;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jarviz.webstore.tools.Role;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 import java.util.*;
 
@@ -30,6 +28,7 @@ public class User implements UserDetails {
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Product> wishes = new HashSet<>();
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "orderUser")
     private Orders order;
 
