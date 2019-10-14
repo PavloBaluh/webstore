@@ -14,10 +14,10 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(unique = true)
+    @Column(unique = true,length = 50)
     private String username;
     private String password;
-    @Column(unique = true)
+    @Column(unique = true, length = 50)
     private String email;
     @Enumerated(EnumType.STRING)
     private Role roles = Role.ROLE_USER;

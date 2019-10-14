@@ -24,6 +24,11 @@ public class MenuController {
         return categoryService.getAllCategories();
     }
 
+    @GetMapping("/getProductById/{id}")
+    public Product getProductById (@PathVariable("id") Integer id){
+        return productService.getProductById(id);
+    }
+
     @GetMapping("/getProductsByGroup/{group}")
     public List<Product> getProductsByGroup(@PathVariable("group") String groupAndPage) {
         return productService.getProductsByGroup(groupAndPage);

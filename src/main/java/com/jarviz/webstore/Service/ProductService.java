@@ -29,14 +29,19 @@ public class ProductService {
         productDao.save(product);
     }
 
+
+    public Product getProductById(Integer id) {
+        return productDao.getOne(id);
+    }
+
     public Integer getProductsCount(String group, Float priceFrom, Float PriceTo, String properties) {
         Group groupByName = groupDao.getByName(group);
         int productCount = 0;
         if ((priceFrom == 0) && (PriceTo == 0)) {
             productCount = productDao.getProductCountWithGroup(groupByName).size();
-        } else  {
+        } else {
             List<Product> products = productDao.getProductCount(groupByName, priceFrom, PriceTo);
-            if ((!properties.isEmpty())) {
+            if ((!properties.isEmpty()) && (!properties.equals("undefined"))) {
                 products = getProductsByProperties(properties, products);
             }
             productCount = products.size();

@@ -99,6 +99,9 @@ public class UserService {
 
     public List<Product> getAllWishes() throws IOException {
         User user = getAuthentication();
+        if(user.getWishes() == null){
+            return null;
+        }
         return new ArrayList<>(user.getWishes());
     }
 

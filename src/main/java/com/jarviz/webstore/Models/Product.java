@@ -29,7 +29,6 @@ public class Product {
     private LocalDateTime data = LocalDateTime.now();
     @Column(name = "rating")
     private float rate;
-    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Group group;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
