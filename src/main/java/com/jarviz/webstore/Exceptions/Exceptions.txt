@@ -297,3 +297,9 @@
 	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 2019-10-13T11:12:19.086 com.jarviz.webstore.tools.NotAuthenticatedException
 2019-10-13T11:12:19.089 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-10-22T17:50:22.207 Mail server connection failed; nested exception is javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Failed messages: javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2019-10-22T17:53:38.008 com.jarviz.webstore.tools.NotAuthenticatedException

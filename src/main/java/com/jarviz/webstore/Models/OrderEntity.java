@@ -1,7 +1,7 @@
 package com.jarviz.webstore.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jarviz.webstore.tools.OrderStatus;
-import com.jarviz.webstore.tools.PayType;
+import com.jarviz.webstore.Enums.OrderStatus;
+import com.jarviz.webstore.Enums.PayType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;

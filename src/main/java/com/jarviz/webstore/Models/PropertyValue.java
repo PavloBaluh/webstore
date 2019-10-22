@@ -19,6 +19,7 @@ public class PropertyValue {
     @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "propertyValues")
     private List<Product> products = new ArrayList<>();
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Property property;
 

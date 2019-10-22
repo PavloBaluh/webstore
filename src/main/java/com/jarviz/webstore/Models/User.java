@@ -1,6 +1,6 @@
 package com.jarviz.webstore.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jarviz.webstore.tools.Role;
+import com.jarviz.webstore.Enums.Role;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

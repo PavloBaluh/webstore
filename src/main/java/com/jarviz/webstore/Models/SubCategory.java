@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Data
-@ToString(exclude = "category")
+@ToString(exclude = {"category","property","groups"})
 public class SubCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +22,7 @@ public class SubCategory {
     private Category category;
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "subCategory")
     private List<Group> groups = new ArrayList<Group>();
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "subCategory")
+    private List<Property> property = new ArrayList<>();
 }

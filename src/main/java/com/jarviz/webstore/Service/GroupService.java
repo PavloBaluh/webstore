@@ -1,6 +1,7 @@
 package com.jarviz.webstore.Service;
 
 import com.jarviz.webstore.Dao.GroupDao;
+import com.jarviz.webstore.Models.Group;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +18,7 @@ public class GroupService {
         return Arrays.asList(hierarchyByGroupName.split(","));
     }
 
+    public Group getByName(String s) {
+        return this.groupDao.getByName(s);
+    }
 }

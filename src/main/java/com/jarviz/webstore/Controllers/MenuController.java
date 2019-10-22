@@ -2,12 +2,12 @@ package com.jarviz.webstore.Controllers;
 
 import com.jarviz.webstore.Models.Category;
 import com.jarviz.webstore.Models.Product;
-import com.jarviz.webstore.Service.CategoryService;
-import com.jarviz.webstore.Service.GroupService;
-import com.jarviz.webstore.Service.ProductService;
+import com.jarviz.webstore.Models.Property;
+import com.jarviz.webstore.Service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -17,7 +17,7 @@ public class MenuController {
     private CategoryService categoryService;
     private ProductService productService;
     private GroupService groupService;
-
+    private SubCategoryService subCategoryService;
 
     @GetMapping("/getCategories")
     public List<Category> getCategories() {
@@ -25,7 +25,7 @@ public class MenuController {
     }
 
     @GetMapping("/getProductById/{id}")
-    public Product getProductById (@PathVariable("id") Integer id){
+    public HashMap<String, Object> getProductById (@PathVariable("id") Integer id){
         return productService.getProductById(id);
     }
 
@@ -59,6 +59,11 @@ public class MenuController {
     @GetMapping("/suchProductsByChars/{charSequence}")
     public List<Product> suchProductsByChars(@PathVariable String charSequence) {
         return this.productService.getProductsByChars(charSequence);
+    }
+
+    @GetMapping("/getAllProperties/{sub}")
+    public List<Property> getAllProperties(@PathVariable("sub") String subCategory){
+        return subCategoryService.getAllPropertiesBySubCategory(subCategory) ;
     }
 
     @PostMapping("/getProductsCount/{group}")

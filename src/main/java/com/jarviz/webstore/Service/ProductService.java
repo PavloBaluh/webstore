@@ -1,42 +1,38 @@
 package com.jarviz.webstore.Service;
-
-import com.jarviz.webstore.Dao.GroupDao;
 import com.jarviz.webstore.Dao.ProductDao;
 import com.jarviz.webstore.Models.Group;
 import com.jarviz.webstore.Models.Product;
+import com.jarviz.webstore.Models.Property;
 import com.jarviz.webstore.Models.PropertyValue;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class ProductService {
-    private GroupDao groupDao;
+    private GroupService groupService;
     private ProductDao productDao;
 
-    public void save(Product product) {
-        productDao.save(product);
-    }
-
-
-    public Product getProductById(Integer id) {
-        return productDao.getOne(id);
+    public HashMap<String, Object> getProductById(Integer id) {
+        Product product = productDao.getOne(id);
+        List<Property> properties = new ArrayList<>();
+        product.getPropertyValues().forEach((propertyValue) -> {
+            propertyValue.getProperty().setValues(Arrays.asList(propertyValue));
+            properties.add(propertyValue.getProperty());
+        });
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("product", product);
+        map.put("properties", properties);
+        return map;
     }
 
     public Integer getProductsCount(String group, Float priceFrom, Float PriceTo, String properties) {
-        Group groupByName = groupDao.getByName(group);
-        int productCount = 0;
+        Group groupByName = groupService.getByName(group);
+        int productCount;
         if ((priceFrom == 0) && (PriceTo == 0)) {
             productCount = productDao.getProductCountWithGroup(groupByName).size();
         } else {
@@ -52,23 +48,51 @@ public class ProductService {
 
     public List<Product> getProductsByGroup(String groupAndPage) {
         String[] split = groupAndPage.split(",");
-        Group groupByName = groupDao.getByName(split[0]);
-
+        Group groupByName = groupService.getByName(split[0]);
         return productDao.getProductsByGroup(groupByName, PageRequest.of(Integer.valueOf(split[1]), 4));
     }
 
 
     public List<Product> getSortedProducts(float priceFrom, float intPriceTo, int limit, String direction, String sortBy, String group, String properties, Integer page) {
-        Group groupByName = groupDao.getByName(group);
+        Group groupByName = groupService.getByName(group);
         List<Product> products;
-        if (direction.equals("desc")) {
-            products = this.productDao.getSortedProducts(priceFrom, intPriceTo, groupByName, PageRequest.of(page, limit, Sort.by(sortBy).descending()));
-        } else
-            products = this.productDao.getSortedProducts(priceFrom, intPriceTo, groupByName, PageRequest.of(page, limit, Sort.by(sortBy)));
         if (!properties.isEmpty()) {
-            return getProductsByProperties(properties, products);
+            List<Product> byGroup = productDao.getByGroup(groupByName);
+            products = getProductsByProperties(properties, byGroup);
+            products = sort(priceFrom,intPriceTo,limit,direction,sortBy,page,products);
+        }
+        else {
+            if (direction.equals("desc")) {
+                products = this.productDao.getSortedProducts(priceFrom, intPriceTo, groupByName, PageRequest.of(page, limit, Sort.by(sortBy).descending()));
+            } else
+                products = this.productDao.getSortedProducts(priceFrom, intPriceTo, groupByName, PageRequest.of(page, limit, Sort.by(sortBy)));
         }
         return products;
+    }
+
+
+    private List<Product> sort(float priceFrom, float intPriceTo, int limit, String direction, String sortBy, Integer page, List<Product> products) {
+        List<Product> sortedList = products.stream().filter(product -> (product.getPrice() >= priceFrom && product.getPrice() <= intPriceTo)).collect(Collectors.toList());
+         sortedList = choseSortBy(sortBy,sortedList);
+         if (direction.equals("desc")) Collections.reverse(sortedList);
+         return sortedList;
+    }
+
+    private List<Product> choseSortBy(String sortBy, List<Product> products) {
+        List<Product> sortedList = new ArrayList<>();
+        if (sortBy.equals("title")) {
+             sortedList = products.stream().sorted(Comparator.comparing(Product::getTitle)).collect(Collectors.toList());
+        }
+        if (sortBy.equals("price")) {
+            sortedList = products.stream().sorted(Comparator.comparing(Product::getPrice)).collect(Collectors.toList());
+        }
+        if (sortBy.equals("data")) {
+            sortedList = products.stream().sorted(Comparator.comparing(Product::getData)).collect(Collectors.toList());
+        }
+        if (sortBy.equals("rate")) {
+            sortedList = products.stream().sorted(Comparator.comparing(Product::getRate)).collect(Collectors.toList());
+        }
+        return sortedList;
     }
 
     private List<Product> getProductsByProperties(String properties, List<Product> products) {
@@ -78,13 +102,13 @@ public class ProductService {
             propertiesArray.add(Integer.valueOf(el));
         }
         for (Product product : products) {
-            ArrayList<Integer> currentpropertiesArray = new ArrayList<>();
+            ArrayList<Integer> currentPropertiesArray = new ArrayList<>();
             List<PropertyValue> propertyValues = product.getPropertyValues();
             propertyValues.sort(Comparator.comparingInt(PropertyValue::getId));
             for (PropertyValue propertyValue : product.getPropertyValues()) {
-                currentpropertiesArray.add(propertyValue.getId());
+                currentPropertiesArray.add(propertyValue.getId());
             }
-            if (currentpropertiesArray.containsAll(propertiesArray)) newProducts.add(product);
+            if (currentPropertiesArray.containsAll(propertiesArray)) newProducts.add(product);
         }
         return newProducts;
     }
@@ -92,7 +116,7 @@ public class ProductService {
 
     public List<Integer> getMinMaxPriceByGroup(String group) {
         List<Integer> minMax = new ArrayList<>();
-        Group groupByName = groupDao.getByName(group);
+        Group groupByName = groupService.getByName(group);
         List<Product> byGroup = this.productDao.getByGroup(groupByName);
         float maxPrice = 0;
         float minPrice = byGroup.get(0).getPrice();

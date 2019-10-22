@@ -1,4 +1,4 @@
-package com.jarviz.webstore.tools;
+package com.jarviz.webstore.Enums;
 
 import lombok.ToString;
 

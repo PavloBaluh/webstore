@@ -1,10 +1,8 @@
 package com.jarviz.webstore.Service;
 
 import com.jarviz.webstore.Models.User;
-import com.jarviz.webstore.tools.ExceptionWriter;
 import lombok.AllArgsConstructor;
 import lombok.Synchronized;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.javamail.JavaMailSender;

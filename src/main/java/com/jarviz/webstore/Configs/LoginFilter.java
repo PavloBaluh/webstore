@@ -1,7 +1,7 @@
 package com.jarviz.webstore.Configs;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jarviz.webstore.tools.AccountCredentials;
+import com.jarviz.webstore.Models.AccountCredentials;
 import com.jarviz.webstore.Models.User;
 import com.jarviz.webstore.Service.UserService;
 import io.jsonwebtoken.Jwts;
