@@ -18,6 +18,6 @@ public class Basket {
     @JsonIgnore
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private User user;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "basket")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "basket")
     private List<BasketEntity> basketEntities = new ArrayList<>();
 }

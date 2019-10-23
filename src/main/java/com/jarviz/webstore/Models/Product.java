@@ -26,10 +26,10 @@ public class Product {
     private String picture;
     private float price;
     @Column(name = "addDate")
-    private LocalDateTime data = LocalDateTime.now();
+    private LocalDateTime date = LocalDateTime.now();
     @Column(name = "rating")
     private float rate;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Group group;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<PropertyValue> propertyValues = new ArrayList<>();
@@ -42,4 +42,7 @@ public class Product {
     @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "wishes")
     private List<User> users = new ArrayList<>();
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "compare")
+    private List<Comparisons> comparisons = new ArrayList<>();
 }

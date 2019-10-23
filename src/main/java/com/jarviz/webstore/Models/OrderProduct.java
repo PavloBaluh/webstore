@@ -19,6 +19,6 @@ public class OrderProduct{
     private Product product;
     private Integer quantity;
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private OrderEntity orderEntity;
 }

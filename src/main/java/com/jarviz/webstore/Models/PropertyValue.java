@@ -20,7 +20,7 @@ public class PropertyValue {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "propertyValues")
     private List<Product> products = new ArrayList<>();
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Property property;
 
     public PropertyValue() {

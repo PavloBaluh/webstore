@@ -27,11 +27,17 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
     List<Product> getByGroup(Group group);
 
     @Query("select p from Product p where p.title like concat('%',:p,'%') ")
-    List<Product> getByCharsSequence(@Param("p") String ch,Pageable pageable);
+    List<Product> getByCharsSequence(@Param("p") String ch, Pageable pageable);
 
     @Query("select p from Product p where p.group = :groupEl and p.price between :pF and :pT ")
     List<Product> getProductCount(@Param("groupEl") Group group, @Param("pF") float priceFrom, @Param("pT") float priceTo);
 
     @Query("select p from Product p where p.group = :groupEl")
     List<Product> getProductCountWithGroup(@Param("groupEl") Group group);
+
+    @Query("select p from Product p order by p.rate desc ")
+    List<Product> getMostPopularProducts(Pageable pageable);
+
+    @Query("select p from Product p order by p.date desc ")
+    List<Product> getLatestProducts(Pageable pageable);
 }

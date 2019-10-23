@@ -25,7 +25,7 @@ public class MenuController {
     }
 
     @GetMapping("/getProductById/{id}")
-    public HashMap<String, Object> getProductById (@PathVariable("id") Integer id){
+    public HashMap<String, Object> getProductById(@PathVariable("id") Integer id) {
         return productService.getProductById(id);
     }
 
@@ -37,6 +37,31 @@ public class MenuController {
     @GetMapping("/getHierarchy/{group}")
     public List<String> getHierarchy(@PathVariable("group") String group) {
         return groupService.getHierarchyByGroupName(group);
+    }
+
+    @GetMapping("/GetMinMaxPriceByGroup/{group}")
+    public List<Integer> getMinMaxPriceByGroup(@PathVariable("group") String group) {
+        return this.productService.getMinMaxPriceByGroup(group);
+    }
+
+    @GetMapping("/suchProductsByChars/{charSequence}")
+    public List<Product> suchProductsByChars(@PathVariable String charSequence) {
+        return this.productService.getProductsByChars(charSequence);
+    }
+
+    @GetMapping("/getAllProperties/{sub}")
+    public List<Property> getAllProperties(@PathVariable("sub") String subCategory) {
+        return subCategoryService.getAllPropertiesBySubCategory(subCategory);
+    }
+
+    @GetMapping("/getMostPopular")
+    public List<Product> getMostPopularProducts() {
+        return this.productService.getMostPopularProducts();
+    }
+
+    @GetMapping("/getLatest")
+    public List<Product> getLatestProducts() {
+        return this.productService.getLatestProducts();
     }
 
     @PostMapping("/GetSortedProducts")
@@ -51,26 +76,11 @@ public class MenuController {
         return productService.getSortedProducts(priceFrom, priceTo, limit, direction, sortBy, group, properties, page);
     }
 
-    @GetMapping("/GetMinMaxPriceByGroup/{group}")
-    public List<Integer> getMinMaxPriceByGroup(@PathVariable("group") String group) {
-        return this.productService.getMinMaxPriceByGroup(group);
-    }
-
-    @GetMapping("/suchProductsByChars/{charSequence}")
-    public List<Product> suchProductsByChars(@PathVariable String charSequence) {
-        return this.productService.getProductsByChars(charSequence);
-    }
-
-    @GetMapping("/getAllProperties/{sub}")
-    public List<Property> getAllProperties(@PathVariable("sub") String subCategory){
-        return subCategoryService.getAllPropertiesBySubCategory(subCategory) ;
-    }
-
     @PostMapping("/getProductsCount/{group}")
     public Integer getProductsCount(@PathVariable("group") String group,
                                     Float priceFrom,
                                     Float priceTo,
                                     String properties) {
-        return productService.getProductsCount(group,priceFrom,priceTo,properties);
+        return productService.getProductsCount(group, priceFrom, priceTo, properties);
     }
 }

@@ -19,9 +19,9 @@ public class PersonalData {
     private String surname;
     private String phoneNumber;
     private String picture;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Address address;
     @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "personalData")
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, mappedBy = "personalData")
     private User user;
 }

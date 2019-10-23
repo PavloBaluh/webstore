@@ -117,6 +117,12 @@ public class UserService {
         basketEntityDao.deleteBasketEntity(user.getBasket(), id);
         return true;
     }
+    public Boolean deleteFromComparison(Integer id) throws IOException {
+        User user = getAuthentication();
+        boolean isDeleted = user.getComparisons().getCompare().removeIf(product -> product.getId() == id);
+        userDao.save(user);
+        return isDeleted;
+    }
 
     public OrderEntity makeOrder(OrderEntity orderEntity) throws IOException {
         orderEntity.setLocalDateTime(LocalDateTime.now());
@@ -159,6 +165,21 @@ public class UserService {
         return false;
     }
 
+    public List<Product> getComparisons() throws IOException {
+        User authentication = getAuthentication();
+       return authentication.getComparisons().getCompare();
+    }
+
+    public Boolean addToCompare(Product product) throws IOException {
+        User user = getAuthentication();
+        if (user.getComparisons() == null){
+            user.setComparisons(new Comparisons(user));
+        }
+        boolean add = user.getComparisons().getCompare().add(productService.get(product.getId()));
+        userDao.save(user);
+        return add;
+    }
+
 
     public User getAuthentication() throws IOException {
         try {
@@ -171,6 +192,7 @@ public class UserService {
             return null;
         }
     }
+
 
 
     private PersonalData updateUserInfo(User user, PersonalData personalData) {

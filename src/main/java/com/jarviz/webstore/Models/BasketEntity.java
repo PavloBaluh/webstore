@@ -17,9 +17,9 @@ public class BasketEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Basket basket;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Product product;
     private Integer quantity;
 

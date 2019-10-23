@@ -26,9 +26,9 @@ public class OrderEntity {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Orders order;
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "orderEntity")
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "orderEntity")
     private List<OrderProduct> orderProducts = new ArrayList<>();
 }
 

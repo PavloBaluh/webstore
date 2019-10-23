@@ -20,7 +20,7 @@ public class Property {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String propertyName;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "property")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "property")
     private List<PropertyValue> values = new ArrayList<>();
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<SubCategory> subCategory = new ArrayList<>();

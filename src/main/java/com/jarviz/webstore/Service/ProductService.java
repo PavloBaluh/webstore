@@ -1,4 +1,5 @@
 package com.jarviz.webstore.Service;
+
 import com.jarviz.webstore.Dao.ProductDao;
 import com.jarviz.webstore.Models.Group;
 import com.jarviz.webstore.Models.Product;
@@ -8,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -59,9 +61,8 @@ public class ProductService {
         if (!properties.isEmpty()) {
             List<Product> byGroup = productDao.getByGroup(groupByName);
             products = getProductsByProperties(properties, byGroup);
-            products = sort(priceFrom,intPriceTo,limit,direction,sortBy,page,products);
-        }
-        else {
+            products = sort(priceFrom, intPriceTo, limit, direction, sortBy, page, products);
+        } else {
             if (direction.equals("desc")) {
                 products = this.productDao.getSortedProducts(priceFrom, intPriceTo, groupByName, PageRequest.of(page, limit, Sort.by(sortBy).descending()));
             } else
@@ -73,21 +74,25 @@ public class ProductService {
 
     private List<Product> sort(float priceFrom, float intPriceTo, int limit, String direction, String sortBy, Integer page, List<Product> products) {
         List<Product> sortedList = products.stream().filter(product -> (product.getPrice() >= priceFrom && product.getPrice() <= intPriceTo)).collect(Collectors.toList());
-         sortedList = choseSortBy(sortBy,sortedList);
-         if (direction.equals("desc")) Collections.reverse(sortedList);
-         return sortedList;
+        sortedList = choseSortBy(sortBy, sortedList);
+        if (direction.equals("desc")) Collections.reverse(sortedList);
+        if (page == 0) {
+            return sortedList.stream().limit(limit).collect(Collectors.toList());
+        } else {
+            return sortedList.stream().skip(page * limit).collect(Collectors.toList());
+        }
     }
 
     private List<Product> choseSortBy(String sortBy, List<Product> products) {
         List<Product> sortedList = new ArrayList<>();
         if (sortBy.equals("title")) {
-             sortedList = products.stream().sorted(Comparator.comparing(Product::getTitle)).collect(Collectors.toList());
+            sortedList = products.stream().sorted(Comparator.comparing(Product::getTitle)).collect(Collectors.toList());
         }
         if (sortBy.equals("price")) {
             sortedList = products.stream().sorted(Comparator.comparing(Product::getPrice)).collect(Collectors.toList());
         }
         if (sortBy.equals("data")) {
-            sortedList = products.stream().sorted(Comparator.comparing(Product::getData)).collect(Collectors.toList());
+            sortedList = products.stream().sorted(Comparator.comparing(Product::getDate)).collect(Collectors.toList());
         }
         if (sortBy.equals("rate")) {
             sortedList = products.stream().sorted(Comparator.comparing(Product::getRate)).collect(Collectors.toList());
@@ -135,5 +140,13 @@ public class ProductService {
 
     public List<Product> getProductsByChars(String sequence) {
         return this.productDao.getByCharsSequence(sequence, PageRequest.of(0, 4));
+    }
+
+    public List<Product> getMostPopularProducts() {
+        return this.productDao.getMostPopularProducts(PageRequest.of(0, 4));
+    }
+
+    public List<Product> getLatestProducts() {
+        return this.productDao.getLatestProducts(PageRequest.of(0, 4));
     }
 }

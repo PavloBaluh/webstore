@@ -39,6 +39,10 @@ public class UserController {
         return userService.getAllOrders();
     }
 
+    @GetMapping("/getComparison")
+    public List<Product> getComparisons() throws IOException {
+        return userService.getComparisons();
+    }
 
     @PostMapping("/register")
     public Boolean registerUser(User user) throws IOException {
@@ -60,6 +64,11 @@ public class UserController {
         return userService.addToWishes(product);
     }
 
+    @PostMapping("/addProductToCompare")
+    public Boolean addProductToCompare(@RequestBody Product product) throws IOException {
+        return userService.addToCompare(product);
+    }
+
     @PostMapping("/makeOrder")
     public OrderEntity makeOrder(@RequestBody OrderEntity orderEntity) throws IOException {
         return this.userService.makeOrder(orderEntity);
@@ -67,7 +76,7 @@ public class UserController {
 
     @PostMapping("/changePassword")
     public boolean changePassword(@RequestParam("newPassword") String newPassword, @RequestParam("oldPassword") String oldPassword) throws IOException {
-        return userService.changePassword(newPassword,oldPassword);
+        return userService.changePassword(newPassword, oldPassword);
     }
 
     @DeleteMapping("/deleteFromBasket/{id}")
@@ -80,5 +89,9 @@ public class UserController {
         return this.userService.deleteFromWishes(id);
     }
 
+    @DeleteMapping("/deleteFromComparison/{id}")
+    public Boolean deleteFromComparison(@PathVariable("id") Integer id) throws IOException {
+        return this.userService.deleteFromComparison(id);
+    }
 
 }

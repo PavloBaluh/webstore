@@ -21,7 +21,7 @@ public class User implements UserDetails {
     private String email;
     @Enumerated(EnumType.STRING)
     private Role roles = Role.ROLE_USER;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private PersonalData personalData;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private Basket basket;
@@ -31,6 +31,9 @@ public class User implements UserDetails {
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "orderUser")
     private Orders order;
+    @JsonIgnore
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    private Comparisons comparisons;
 
     private boolean isAccountNonExpired = true;
     private boolean isAccountNonLocked = true;
