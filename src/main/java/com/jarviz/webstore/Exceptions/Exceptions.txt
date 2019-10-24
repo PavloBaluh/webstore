@@ -303,3 +303,19 @@
   nested exception is:
 	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 2019-10-22T17:53:38.008 com.jarviz.webstore.tools.NotAuthenticatedException
+2019-10-24T14:16:00.634 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T15:32:14.618 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T15:34:39.086 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T15:38:41.038 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T15:45:47.352 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T15:46:23.117 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T15:47:49.110 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T15:49:01.616 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T15:50:05.152 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T15:50:20.977 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T16:23:32.852 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T16:25:25.082 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T16:37:39.785 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T16:37:49.934 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T18:52:29.800 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-24T18:56:34.324 com.jarviz.webstore.Exceptions.NotAuthenticatedException

@@ -1,10 +1,9 @@
 package com.jarviz.webstore.Models;
 
 import lombok.Data;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -13,7 +12,7 @@ public class Comparisons {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<Product> compare = new ArrayList<>();
+    private Set<Product> compare = new HashSet<>();
     @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private User user;
 

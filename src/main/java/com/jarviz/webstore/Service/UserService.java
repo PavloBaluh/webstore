@@ -167,7 +167,11 @@ public class UserService {
 
     public List<Product> getComparisons() throws IOException {
         User authentication = getAuthentication();
-       return authentication.getComparisons().getCompare();
+        if (authentication.getComparisons() == null){
+            return null;
+
+        }
+       return new ArrayList<>(authentication.getComparisons().getCompare());
     }
 
     public Boolean addToCompare(Product product) throws IOException {

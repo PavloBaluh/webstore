@@ -7,6 +7,7 @@ import com.jarviz.webstore.Service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class MenuController {
     }
 
     @GetMapping("/getAllProperties/{sub}")
-    public List<Property> getAllProperties(@PathVariable("sub") String subCategory) {
+    public List<Property> getAllProperties(@PathVariable("sub") String subCategory) throws IOException {
         return subCategoryService.getAllPropertiesBySubCategory(subCategory);
     }
 
