@@ -114,8 +114,14 @@ public class UserService {
 
     public boolean deleteFromBasket(Integer id) throws IOException {
         User user = getAuthentication();
-        basketEntityDao.deleteBasketEntity(user.getBasket(), id);
-        return true;
+        try {
+            basketEntityDao.deleteBasketEntity(user.getBasket(), id);
+            return true;
+        }
+        catch (Exception e){
+            exceptionWriter.write(e.getLocalizedMessage());
+            return false;
+        }
     }
     public Boolean deleteFromComparison(Integer id) throws IOException {
         User user = getAuthentication();

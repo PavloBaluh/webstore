@@ -319,3 +319,31 @@
 2019-10-24T16:37:49.934 com.jarviz.webstore.Exceptions.NotAuthenticatedException
 2019-10-24T18:52:29.800 com.jarviz.webstore.Exceptions.NotAuthenticatedException
 2019-10-24T18:56:34.324 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T11:32:55.289 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T11:33:41.942 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T11:33:54.410 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T11:34:49.795 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T11:35:49.994 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T11:36:00.922 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T11:38:45.579 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T11:44:58.155 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T12:25:19.531 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T12:26:04.111 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T12:29:28.428 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T13:12:36.893 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T13:13:11.238 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T13:23:09.021 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T13:23:48.263 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T14:44:01.269 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T14:44:41.254 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T14:50:06.072 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T14:53:09.150 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T14:57:19.196 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T14:57:59.935 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T15:10:06.300 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T15:10:40.211 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T15:11:52.259 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T15:12:29.779 Named parameter not bound : orderEntityId; nested exception is org.hibernate.QueryException: Named parameter not bound : orderEntityId
+2019-10-25T15:12:31.376 Named parameter not bound : orderEntityId; nested exception is org.hibernate.QueryException: Named parameter not bound : orderEntityId
+2019-10-25T15:18:53.984 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-25T15:19:47.212 com.jarviz.webstore.Exceptions.NotAuthenticatedException

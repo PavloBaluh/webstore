@@ -2,10 +2,13 @@ package com.jarviz.webstore.Service;
 
 import com.jarviz.webstore.Dao.UserDao;
 import com.jarviz.webstore.Enums.Role;
+import com.jarviz.webstore.Models.Orders;
 import com.jarviz.webstore.Models.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,9 +16,10 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class AdminService {
     private UserDao userDao;
+    private UserService userService;
 
-    public List<User> getAllUsers(){
-       return userDao.findAll().stream().filter(user -> user.getRoles() == Role.ROLE_USER).collect(Collectors.toList());
+    public List<User> getAllUsers() {
+        return userDao.findAll().stream().filter(user -> user.getRoles() == Role.ROLE_USER).collect(Collectors.toList());
     }
 
     public User lockUnlock(Integer id) {
@@ -23,5 +27,15 @@ public class AdminService {
         one.setAccountNonLocked(!one.isAccountNonLocked());
         userDao.save(one);
         return one;
+    }
+
+    public List<Orders> getAllOrders() {
+        List<User> all = userDao.findAll();
+        List<Orders> orders = new ArrayList<>();
+        all.forEach(user -> {
+            if (user.getOrder() != null && user.getOrder().getOrderEntities().size()>0)
+            orders.add(user.getOrder());
+        });
+        return orders;
     }
 }
