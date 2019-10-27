@@ -15,4 +15,11 @@ public class Category {
     private String name;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "category")
     private List<SubCategory> subCategories = new ArrayList<>();
+
+    public Category() {
+    }
+
+    public Category(String name) {
+        this.name = name;
+    }
 }

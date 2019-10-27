@@ -24,4 +24,11 @@ public class Group {
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private SubCategory subCategory;
+
+    public Group() {
+    }
+
+    public Group(String name) {
+        this.name = name;
+    }
 }

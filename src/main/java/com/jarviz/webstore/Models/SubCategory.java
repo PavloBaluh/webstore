@@ -25,4 +25,11 @@ public class SubCategory {
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "subCategory")
     private List<Property> property = new ArrayList<>();
+
+    public SubCategory(String name) {
+        this.name = name;
+    }
+
+    public SubCategory() {
+    }
 }

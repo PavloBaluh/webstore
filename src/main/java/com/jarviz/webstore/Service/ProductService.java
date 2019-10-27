@@ -122,7 +122,7 @@ public class ProductService {
     public List<Integer> getMinMaxPriceByGroup(String group) {
         List<Integer> minMax = new ArrayList<>();
         Group groupByName = groupService.getByName(group);
-        List<Product> byGroup = this.productDao.getByGroup(groupByName);
+        List<Product> byGroup = productDao.getByGroup(groupByName);
         float maxPrice = 0;
         float minPrice = byGroup.get(0).getPrice();
         for (Product product : byGroup) {
@@ -139,14 +139,23 @@ public class ProductService {
     }
 
     public List<Product> getProductsByChars(String sequence) {
-        return this.productDao.getByCharsSequence(sequence, PageRequest.of(0, 4));
+        return productDao.getByCharsSequence(sequence, PageRequest.of(0, 4));
     }
 
     public List<Product> getMostPopularProducts() {
-        return this.productDao.getMostPopularProducts(PageRequest.of(0, 4));
+        return productDao.getMostPopularProducts(PageRequest.of(0, 4));
     }
 
     public List<Product> getLatestProducts() {
-        return this.productDao.getLatestProducts(PageRequest.of(0, 4));
+        return productDao.getLatestProducts(PageRequest.of(0, 4));
+    }
+
+    public List<Product> getAll(){
+        return productDao.findAll();
+    }
+
+    public void delete(Integer id) {
+        Product product = productDao.getOne(id);
+        productDao.delete(product);
     }
 }

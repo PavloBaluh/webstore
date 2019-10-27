@@ -29,7 +29,7 @@ public class Product {
     private LocalDateTime date = LocalDateTime.now();
     @Column(name = "rating")
     private float rate;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Group group;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<PropertyValue> propertyValues = new ArrayList<>();

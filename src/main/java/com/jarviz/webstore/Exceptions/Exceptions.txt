@@ -347,3 +347,5 @@
 2019-10-25T15:12:31.376 Named parameter not bound : orderEntityId; nested exception is org.hibernate.QueryException: Named parameter not bound : orderEntityId
 2019-10-25T15:18:53.984 com.jarviz.webstore.Exceptions.NotAuthenticatedException
 2019-10-25T15:19:47.212 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-26T12:44:20.689 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-26T12:44:56.705 com.jarviz.webstore.Exceptions.NotAuthenticatedException
