@@ -158,4 +158,20 @@ public class ProductService {
         Product product = productDao.getOne(id);
         productDao.delete(product);
     }
+
+    public Product save(Product product){
+        return productDao.save(product);
+    }
+
+    public Product add(Integer groupId) {
+        Product product = new Product();
+        Group group = groupService.getOne(groupId);
+        product.setGroup(group);
+        product.setTitle("Default Product");
+        productDao.save(product);
+        List<Product> productsInGroup = group.getProduct();
+        productsInGroup.add(product);
+        groupService.save(group);
+        return product;
+    }
 }

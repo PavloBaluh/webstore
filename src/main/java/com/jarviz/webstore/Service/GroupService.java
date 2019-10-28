@@ -70,4 +70,12 @@ public class GroupService {
         group.setSubCategory(one);
         return groupDao.save(group);
     }
+
+    public Group getOne(Integer id){
+        return groupDao.getOne(id);
+    }
+
+    public void save(Group group){
+        groupDao.save(group);
+    }
 }

@@ -4,6 +4,7 @@ import com.jarviz.webstore.Models.*;
 import com.jarviz.webstore.Service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -59,6 +60,11 @@ public class AdminController {
         return groupService.rename(data);
     }
 
+    @GetMapping("/addProduct/{groupId}")
+    public Product renameGroup(@PathVariable Integer groupId) {
+        return productService.add(groupId);
+    }
+
     @PostMapping("/addCategory/{name}")
     public Category addCategory(@PathVariable("name") String name) {
         return categoryService.add(name);
@@ -66,12 +72,17 @@ public class AdminController {
 
     @PostMapping("/addSubCategory/{name}")
     public SubCategory addSubCategory(@PathVariable("name") String name, @RequestBody Category category) {
-        return subCategoryService.add(name,category);
+        return subCategoryService.add(name, category);
     }
 
     @PostMapping("/addGroup/{name}")
     public Group addGroup(@PathVariable("name") String name, @RequestBody SubCategory subCategory) {
-        return groupService.add(name,subCategory);
+        return groupService.add(name, subCategory);
+    }
+
+    @PostMapping("/changeProductInfo")
+    public boolean changeProductInfo(Product product, Integer groupId, MultipartFile productPicture, String properties,String oldPicture) throws IOException {
+        return adminService.changeProductInfo(product,groupId,productPicture,properties,oldPicture);
     }
 
 
