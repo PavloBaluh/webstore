@@ -1,11 +1,9 @@
 package com.jarviz.webstore.Controllers;
-
 import com.jarviz.webstore.Models.*;
 import com.jarviz.webstore.Service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.util.List;
 

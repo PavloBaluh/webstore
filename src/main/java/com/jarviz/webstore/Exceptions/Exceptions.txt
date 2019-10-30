@@ -349,3 +349,48 @@
 2019-10-25T15:19:47.212 com.jarviz.webstore.Exceptions.NotAuthenticatedException
 2019-10-26T12:44:20.689 com.jarviz.webstore.Exceptions.NotAuthenticatedException
 2019-10-26T12:44:56.705 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T12:05:18.308 1
+2019-10-30T12:05:43.703 1
+2019-10-30T12:07:13.071 1
+2019-10-30T12:10:15.715 1
+2019-10-30T12:10:55.053 1
+2019-10-30T12:11:34.653 1
+2019-10-30T13:35:23.144 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T13:35:32.051 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T15:49:33.298 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T15:49:37.261 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T15:56:14.863 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T15:59:06.756 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T15:59:43.876 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T15:59:54.515 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T16:00:02.568 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T16:00:16.608 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T16:02:17.106 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T16:02:25.065 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T16:05:43.126 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:42:41.300 could not execute statement; SQL [n/a]; constraint [UK_ob8kqyqqgmefl0aco34akdtpe]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2019-10-30T17:51:26.358 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:56:07.149 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:56:41.550 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:56:45.129 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:56:45.573 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:56:47.111 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:57:25.654 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:57:35.270 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:57:38.879 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:58:04.992 Mail server connection failed; nested exception is javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Failed messages: javax.mail.MessagingException: Could not convert socket to TLS;
+  nested exception is:
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2019-10-30T17:59:30.843 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:59:33.234 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:59:33.989 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T17:59:34.946 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T18:00:12.239 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T18:00:16.182 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T18:00:18.898 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T18:03:03.853 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T18:05:20.790 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T18:05:27.766 com.jarviz.webstore.Exceptions.NotAuthenticatedException
+2019-10-30T18:06:19.271 com.jarviz.webstore.Exceptions.NotAuthenticatedException

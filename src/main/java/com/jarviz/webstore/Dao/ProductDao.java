@@ -47,4 +47,9 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
     @Modifying
     @Query("delete from Product p where  p.group = :group")
     void deleteByGroup(@Param("group") Group group);
+
+    @Transactional
+    @Modifying
+    @Query("delete from Product p where  p.id = :id")
+    void deleteById(@Param("id") Integer id);
 }

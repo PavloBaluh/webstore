@@ -8,7 +8,9 @@ import com.jarviz.webstore.Models.PropertyValue;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -91,7 +93,7 @@ public class ProductService {
         if (sortBy.equals("price")) {
             sortedList = products.stream().sorted(Comparator.comparing(Product::getPrice)).collect(Collectors.toList());
         }
-        if (sortBy.equals("data")) {
+        if (sortBy.equals("date")) {
             sortedList = products.stream().sorted(Comparator.comparing(Product::getDate)).collect(Collectors.toList());
         }
         if (sortBy.equals("rate")) {
@@ -154,9 +156,9 @@ public class ProductService {
         return productDao.findAll();
     }
 
+
     public void delete(Integer id) {
-        Product product = productDao.getOne(id);
-        productDao.delete(product);
+        productDao.deleteById(id);
     }
 
     public Product save(Product product){

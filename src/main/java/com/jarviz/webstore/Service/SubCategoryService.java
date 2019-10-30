@@ -6,9 +6,12 @@ import com.jarviz.webstore.Exceptions.ExceptionWriter;
 import com.jarviz.webstore.Models.Category;
 import com.jarviz.webstore.Models.Property;
 import com.jarviz.webstore.Models.SubCategory;
+import com.jarviz.webstore.Models.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -45,14 +48,17 @@ public class SubCategoryService {
         }
     }
 
-    public Boolean rename(String data) throws IOException {
+    public Boolean edit(String data, MultipartFile picture) throws IOException {
         try {
             String[] split = data.split(",");
             String newName = split[0];
             Integer id = Integer.parseInt(split[1]);
-            SubCategory category = subCategoryDao.getOne(id);
-            category.setName(newName);
-            subCategoryDao.save(category);
+            SubCategory Subcategory = subCategoryDao.getOne(id);
+            Subcategory.setName(newName);
+            if(savePicture(picture,Subcategory)){
+                Subcategory.setPicture(picture.getOriginalFilename());
+            }
+            subCategoryDao.save(Subcategory);
             return true;
         }
         catch (Exception e) {
@@ -72,5 +78,31 @@ public class SubCategoryService {
         Category one = categoryDao.getOne(category.getId());
         subCategory.setCategory(one);
        return subCategoryDao.save(subCategory);
+    }
+
+
+    private boolean savePicture(MultipartFile picture, SubCategory subCategory) throws IOException {
+        String path = System.getProperty("user.home") + "\\Desktop\\Front\\src\\assets\\Groups\\";
+        if (picture == null) {
+            return false;
+        }
+        if (!(subCategory.getPicture() == null) && !(subCategory.getPicture().equals(""))) {
+            File file = new File(path + subCategory.getPicture());
+            if (file.exists()) {
+                file.delete();
+            }
+        }
+        File file = new File(path + picture.getOriginalFilename());
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+        try {
+            picture.transferTo(file);
+        } catch (IOException e) {
+            exceptionWriter.write(e.getLocalizedMessage());
+            return false;
+        }
+
+        return true;
     }
 }

@@ -11,7 +11,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -34,23 +36,25 @@ public class GroupService {
         return this.groupDao.getByName(s);
     }
 
-    public Boolean rename(String data) throws IOException {
+    public Boolean edit(String data, MultipartFile picture) throws IOException {
         try {
             String[] split = data.split(",");
             String newName = split[0];
             Integer id = Integer.parseInt(split[1]);
             Group group = groupDao.getOne(id);
             group.setName(newName);
+            if (savePicture(picture, group)) {
+                group.setPicture(picture.getOriginalFilename());
+            }
             groupDao.save(group);
             return true;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             exceptionWriter.write(e.getLocalizedMessage());
             return false;
         }
     }
 
-    public void  deleteBySubCategory(SubCategory subCategory){
+    public void deleteBySubCategory(SubCategory subCategory) {
         List<Group> bySubCategory = groupDao.getBySubCategory(subCategory);
         for (Group group : bySubCategory) {
             productDao.deleteByGroup(group);
@@ -71,11 +75,37 @@ public class GroupService {
         return groupDao.save(group);
     }
 
-    public Group getOne(Integer id){
+    public Group getOne(Integer id) {
         return groupDao.getOne(id);
     }
 
-    public void save(Group group){
+    public void save(Group group) {
         groupDao.save(group);
+    }
+
+
+    private boolean savePicture(MultipartFile picture, Group group) throws IOException {
+        String path = System.getProperty("user.home") + "\\Desktop\\Front\\src\\assets\\Groups\\";
+        if (picture == null) {
+            return false;
+        }
+        if (!(group.getPicture() == null) && !(group.getPicture().equals(""))) {
+            File file = new File(path + group.getPicture());
+            if (file.exists()) {
+                file.delete();
+            }
+        }
+        File file = new File(path + picture.getOriginalFilename());
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+        try {
+            picture.transferTo(file);
+        } catch (IOException e) {
+            exceptionWriter.write(e.getLocalizedMessage());
+            return false;
+        }
+
+        return true;
     }
 }
